@@ -1,0 +1,40 @@
+cell,n,lift,tadj,sink_weight
+RB1(lead):TD weak,1066,2.37,1.75,100.0
+QB1:YPA weak,2003,2.14,1.5,85.7
+RBdepth:>=2 backs weak-TD,1963,1.98,1.47,84.0
+QB1:TD weak,1189,2.1,1.4,80.0
+RB1(lead):YPC weak,1017,1.97,1.39,79.4
+QB1:INT weak,2434,1.37,1.34,76.6
+QB2:INT weak,1861,1.33,1.33,76.0
+QB1:Pct weak,2107,1.7,1.33,76.0
+QB1:RushYPC weak,2464,1.34,1.33,76.0
+RB1(lead):Yds weak,928,1.83,1.32,75.4
+WRcorps:>= 3 weak-YPC,991,1.99,1.32,75.4
+QB1:RushYds weak,2339,1.29,1.3,74.3
+RB1(lead):Rec weak,900,1.27,1.26,72.0
+QB2:RushYPC weak,1869,1.33,1.22,69.7
+TE1:YPC weak,1431,1.3,1.2,68.6
+WRcorps:>= 2 weak-YPC,2825,1.45,1.19,68.0
+QB2:YPA weak,2343,1.48,1.19,68.0
+RBdepth:>=2 backs weak-YPC,1957,1.55,1.16,66.3
+QB2:RushYds weak,1981,1.24,1.15,65.7
+QB2:Pct weak,2225,1.39,1.15,65.7
+RB1(lead):RecYd weak,1085,1.19,1.15,65.7
+QB1:Yds weak,1696,1.46,1.09,62.3
+RB2:YPC weak,2459,1.29,1.08,61.7
+QB2:TD weak,3149,1.19,1.08,61.7
+WRcorps:>= 1 weak-YPC,4696,1.1,1.07,61.1
+WRcorps:>= 1 weak-TD,4697,1.1,1.05,60.0
+WRcorps:>= 3 weak-TD,985,1.65,1.04,59.4
+TE1:TD weak,1426,1.15,1.03,58.9
+WRcorps:>= 2 weak-TD,2866,1.29,1.02,58.3
+QB2:Yds weak,2674,1.16,1.01,57.7
+TE1:Yds weak,1434,1.13,1.0,57.1
+WRcorps:>= 1 weak-Yds,4699,1.02,0.98,56.0
+WRcorps:>= 1 weak-Rec,4545,0.98,0.94,53.7
+RB1(lead):RecYPC weak,1747,0.95,0.87,49.7
+WRcorps:>= 2 weak-Yds,2860,1.07,0.84,48.0
+WRcorps:>= 3 weak-Yds,978,1.33,0.81,46.3
+TE1:Rec weak,1438,0.86,0.81,46.3
+WRcorps:>= 2 weak-Rec,2819,0.96,0.79,45.1
+WRcorps:>= 3 weak-Rec,1090,0.99,0.68,38.9

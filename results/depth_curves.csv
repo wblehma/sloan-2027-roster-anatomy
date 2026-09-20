@@ -1,0 +1,7 @@
+unit,dimension,signal_persists_through,dies_at,note
+offense_RB,YPC_per_touch,depth 2,depth 3 (+0.4pp),efficient backs matter for top ~2
+offense_RB,TD_finishing,depth 4-5 (~+5pp each),slow decay to 6,multi-back finishing has real reach
+offense_WR,YPC_and_TD,depth 3,depth 4 (+0.4 / -0.1pp),receiver quality matters top ~3; depth 5-6 uptick is pass-happy selection artifact
+defense_DL,Sack_rush,depth 4 (+3.3pp),depth 5,deepest quality signal in either study
+defense_DB,INT_coverage,depth 5 (+3.5pp),,nickel/dime ball-hawks still add value
+defense_LB,Sack,depth 2,depth 3 (-0.6pp),LB rush matters for top ~2 only

@@ -1,0 +1,12 @@
+unit,shape,top_decile_rate_pct,lift,tadj,subset
+offense,both_pass_and_rush_strong,40.4,3.72,1.75,all
+offense,pass_strong_only,16.1,1.48,1.13,all
+offense,rush_strong_only,10.1,0.93,0.75,all
+offense,neither,2.5,0.23,0.39,all
+offense,both_pass_and_rush_strong,44.0,,1.65,top2_talent_quintiles
+offense,pass_strong_only,21.8,,1.02,top2_talent_quintiles
+offense,rush_strong_only,14.9,,0.73,top2_talent_quintiles
+defense,both_passD_and_runD_strong,15.0,1.38,1.27,all
+defense,passD_only,10.1,,0.97,all
+defense,runD_only,8.5,,0.78,all
+defense,neither,8.4,,0.81,all

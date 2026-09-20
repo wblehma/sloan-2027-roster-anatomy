@@ -1,0 +1,13 @@
+ranking_or_slice,player_dev_z,player_ci_lo,player_ci_hi,team_outcome
+old_archetype_recommender_offense,-0.3,-0.46,-0.15,"+14.3 elo, crosses 0 (wrong sign)"
+new_mix_score_offense_ALL,0.51,0.35,0.66,-31.1 elo (league-baseline artifact)
+new_mix_score_offense_QB,1.16,,,
+new_mix_score_offense_RB,0.59,,,
+new_mix_score_offense_TE,0.39,,,
+new_mix_score_offense_WR,0.16,,,
+offense_vs_counterfactual_surprise,,,,"-0.001 [-0.040,+0.041] clean null"
+new_mix_score_defense_ALL,0.67,0.48,0.86,
+new_mix_score_defense_DL,0.76,,,
+new_mix_score_defense_DB,0.77,,,
+new_mix_score_defense_LB,0.45,,,
+defense_vs_counterfactual_surprise,,,,"+0.013 [-0.038,+0.065] clean null"

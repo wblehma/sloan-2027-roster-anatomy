@@ -1,0 +1,6 @@
+model,loso_mae,loso_r2,oot_2024_25_mae,oot_2024_25_r2
+naive_prior_year_only,0.101,0.772,0.088,0.83
+offense_roster_only,0.093,0.826,0.094,0.833
+offense_roster_plus_staff,0.092,0.829,0.095,0.83
+defense_prior_plus_program,0.099,0.795,0.093,
+defense_plus_DC_HC_staff,0.097,0.802,0.092,0.826

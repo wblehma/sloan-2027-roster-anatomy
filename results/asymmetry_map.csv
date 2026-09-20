@@ -1,0 +1,15 @@
+unit,cell,weak_penalty_pp,elite_bonus_pp,abs_weak_over_elite,reading
+offense,QB1_YPA,-13.1,14.2,0.92,near-symmetric; largest weak-penalty on roster
+offense,QB1_INT,-8.3,9.6,0.86,near-symmetric
+offense,QB1_Pct,-6.4,7.8,0.82,near-symmetric
+offense,QB1_TD,-6.5,10.5,0.62,upside-tilted
+offense,RB1_TD,-8.1,12.6,0.64,the one skill weakness you cannot hide
+offense,RB1_YPC,-4.0,8.5,0.47,upside-asymmetric
+offense,RB2_YPC,-2.1,7.7,0.28,depth absorbs weak skill
+offense,WR1_YPC,-3.8,5.8,0.66,upside-asymmetric
+defense,DB1_INT,0.4,10.3,0.04,weakness essentially free
+defense,DL2_TFL,0.3,9.7,0.03,weakness free
+defense,DB2_INT,-0.9,9.3,0.1,best-player
+defense,DL3_Sack,2.2,11.6,0.19,best-player
+defense,DL1_Sack,3.0,9.4,0.32,best-player
+defense,DB1_PD,2.9,4.0,0.71,closest defense comes to symmetric

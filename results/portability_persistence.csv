@@ -1,0 +1,7 @@
+unit,dimension,returning_r,transfer_r,n_transfer
+offense_WR,YPC,0.863,0.87,1149
+offense_WR,TD,0.847,0.847,1149
+defense_DL,Sack,0.885,0.852,799
+defense_DL,TFL,0.9,0.86,799
+defense_DB,INT,0.873,0.839,1374
+defense_LB,TFL,0.879,0.811,657

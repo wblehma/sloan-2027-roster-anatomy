@@ -1,0 +1,19 @@
+cell,n,lift,tadj,sink_weight
+DB corps:>=2 ELITE-Tkl (inv),1036,1.31,1.24,100.0
+LB corps:>=2 weak-TFL,1678,1.12,1.13,91.1
+DB corps:>=2 weak-PD,2105,1.13,1.13,91.1
+DB corps:>=2 weak-INT,2371,1.13,1.11,89.5
+DL corps:>=2 weak-TFL,1745,1.06,1.07,86.3
+DL corps:>=2 weak-Sack,1739,1.05,1.06,85.5
+LB corps:>=2 weak-INT,1740,1.05,1.04,83.9
+LB corps:>=2 weak-QBH,1707,1.04,1.04,83.9
+LB corps:>=2 weak-Sack,1718,1.03,1.03,83.1
+DL corps:>=2 weak-PD,1587,1.03,1.02,82.3
+DL corps:>=2 weak-QBH,1771,0.99,1.0,80.6
+DB corps:>=2 weak-TFL,2275,1.01,1.0,80.6
+LB corps:>=2 weak-PD,1664,0.99,0.98,79.0
+DL corps:>=2 ELITE-Tkl (inv),738,1.02,0.97,78.2
+DB corps:>=2 weak-Sack,2315,0.94,0.93,75.0
+DL corps:>=2 weak-INT,1836,0.94,0.93,75.0
+LB corps:>=2 ELITE-Tkl (inv),672,0.97,0.92,74.2
+DB corps:>=2 weak-QBH,2284,0.9,0.89,71.8
