@@ -35,7 +35,7 @@ engine. We verified this equivalence: best-rated identification by overall perce
 identification by the raw rating in 100% of backfields.
 
 **License (recommended, pending author confirmation):** the data are released under
-**Creative Commons Attribution 4.0 (CC BY 4.0)** — free to share and adapt with attribution. See
+**Creative Commons Attribution-NonCommercial 4.0 (CC BY-NC 4.0)** — free to share and adapt with attribution. See
 [`LICENSE`](LICENSE). *This is a recommendation; confirm before public release.*
 
 ---
