@@ -5,8 +5,8 @@
 **Venue:** MIT Sloan Sports Analytics Conference — Football Track (Research Paper)
 **Live ratings:** every player rating in this study is publicly browsable at **competitionfactor.com**
 
-This repository contains the **derived study datasets** behind the paper. Together they reproduce
-every table and figure in the paper. A worked proof is in
+This repository contains the **derived study datasets** behind the paper, plus the script and
+images for every figure in it. Together they reproduce every table and figure in the paper. A worked proof is in
 [`examples/verify_reproduction.py`](examples/verify_reproduction.py), which recomputes three
 headline numbers (a factor weight, the running-back misallocation rate and penalty, and one
 leave-one-season-out row) using nothing but the files in this repository.
@@ -44,7 +44,9 @@ identification by the raw rating in 100% of backfields.
 
 ```
 data/        derived study datasets (player-season levels, team panels, transfers, coaches)
-results/     the paper's result tables, as machine-readable CSV
+results/     the paper's result tables (CSV) and fit diagnostics (JSON)
+scripts/     paper_figs.py — draws every figure in the manuscript from data/ + results/
+fig/paper/   the fourteen figures as embedded in the submitted paper (PNG)
 examples/    verify_reproduction.py — recomputes 3 paper numbers from data/ + results/
 ```
 
@@ -129,47 +131,86 @@ effect over roster+program expectation, elo), `raw` (unshrunk).
 
 ---
 
-## `results/` — the paper's tables, as data
+## `results/` — the paper's tables and figure inputs, as data
+
+Table and figure numbers follow the submitted manuscript: body Tables 1–2 and Figures 1–7;
+Appendix Tables A1–A6 and Figures A1–A7.
 
 | File | Paper table / figure |
 |---|---|
-| `offense_factor_weights.csv` | **Table 3** — offense slot × dimension weight map (`slot,n,dim,weight,tadj,tadj_n`) |
-| `defense_factor_weights.csv` | **Table 4** — defense group × slot × dimension weight map (`slot,dim,weight,tadj,flag`) |
-| `offense_failure_table.csv` | **§4.4** — offense failure / sink cells (`cell,n,lift,tadj,sink_weight`) |
+| `offense_factor_weights.csv` | **Table A1 / Figure 2** — offense slot × dimension weight map (`slot,n,dim,weight,tadj,tadj_n`) |
+| `defense_factor_weights.csv` | **Table A2 / Figure A1** — defense group × slot × dimension weight map (`slot,dim,weight,tadj,flag`) |
+| `offense_failure_table.csv` | **§4.4, §4.8** — offense failure / sink cells (`cell,n,lift,tadj,sink_weight`) |
 | `defense_failure_table.csv` | **§4.4** — defense failure cells |
-| `loso_robustness.csv` | **Table 3b** — rotating leave-one-season-out (23 refits) |
-| `balance_interaction.csv` | **Table 2** — balance: the central talent-controlled interaction |
-| `asymmetry_map.csv` | **Table 5** — weak-penalty vs elite-bonus asymmetry map |
-| `depth_curves.csv` | **Table 6** — where the quality signal dies, by unit |
-| `portability_persistence.csv` | **Table 7** — year-over-year persistence, transfer vs returning |
-| `portal_backtest_summary.csv` | **Table 8** — portal backtest: player win, team null |
-| `preseason_variant_comparison.csv` | **Table 9** — preseason projection variant comparison |
+| `loso_robustness.csv` | **Table A3 / Figure A2** — rotating leave-one-season-out (23 refits) |
+| `balance_interaction.csv` | **§4.1 / Figure 1** — balance: the central talent-controlled interaction |
+| `asymmetry_map.csv` | **Table A4 / Figure 4** — weak-penalty vs elite-bonus asymmetry map |
+| `depth_curves.csv` | **Table A5 / Figure A4** — where the quality signal dies, by unit |
+| `portability_persistence.csv` | **§4.7 / Figure A5** — year-over-year persistence, transfer vs returning |
+| `portal_backtest_summary.csv` | **Table A6 / Figure 7** — portal backtest: player win, team null |
+| `preseason_variant_comparison.csv` | **Table 2 / Figure A7** — preseason projection variant comparison |
+| `diag.json`, `def_diag.json` | **Figure 3** — permutation-importance slot leverage (`leverage`: slot → [ΔR², SE]) and slot interactions, offense / defense |
+| `e3_fe.json`, `def_e3.json` | **§4.8 / Figure 6** — coordinator-instrument summary (base vs +coordinator R², residual claimed, p10/p90 effect) |
 
 `offense_factor_weights`, `defense_factor_weights`, `offense_failure_table`,
-`defense_failure_table`, and `loso_robustness` are the direct machine outputs of the study's fits
-on the packaged panels. `balance_interaction`, `asymmetry_map`, `depth_curves`,
-`portability_persistence`, `portal_backtest_summary`, and `preseason_variant_comparison` are the
-paper's reported summary tables transcribed to CSV (the source of truth being the paper); their
-underlying panels ship in `data/`, so each remains reproducible from this repository.
+`defense_failure_table`, `loso_robustness`, and the four JSON diagnostics are the direct machine
+outputs of the study's fits on the packaged panels. `balance_interaction`, `asymmetry_map`,
+`depth_curves`, `portability_persistence`, `portal_backtest_summary`, and
+`preseason_variant_comparison` are the paper's reported summary tables transcribed to CSV (the
+source of truth being the paper); their underlying panels ship in `data/`, so each remains
+reproducible from this repository.
 
-### How each paper table maps to the data
+### How each paper table and figure maps to the data
 
 - **Table 1** (study universe) — row counts and coverage: `offense_team_season_panel.csv`,
   `defense_team_season_panel.csv`, `coaches_fbs.csv`.
-- **Table 2** (balance) — recompute from `*_team_season_panel.csv` (pass/rush split × outcome);
+- **Figure 1** (balance) — recompute from `*_team_season_panel.csv` (pass/rush split × outcome);
   reported in `results/balance_interaction.csv`.
-- **Table 3 / 3b / 4** — `results/offense_factor_weights.csv`, `results/loso_robustness.csv`,
-  `results/defense_factor_weights.csv`; refit from the team panels (see the example script).
-- **Table 5, §4.4 failure** — `results/asymmetry_map.csv`, `results/*_failure_table.csv`; from the
-  player-level and team panels.
-- **Table 6** (depth) — `results/depth_curves.csv`; from the player-level files + team outcomes.
-- **Table 7** (portability) — `results/portability_persistence.csv`; from the transfer-persistence
-  files.
-- **Table 8** (portal) — `results/portal_backtest_summary.csv`; from `transfer_backtest.csv` +
+- **Figure 2 / Table A1, Figure A1 / Table A2, Figure A2 / Table A3** (weight maps, LOSO) —
+  `results/offense_factor_weights.csv`, `results/defense_factor_weights.csv`,
+  `results/loso_robustness.csv`; refit from the team panels (see `examples/verify_reproduction.py`).
+- **Figure 3** (positional leverage) — `results/diag.json`, `results/def_diag.json`; permutation
+  importance on the team-panel ridge fit.
+- **Figure 4 / Table A4, §4.4 failure** — `results/asymmetry_map.csv`, `results/*_failure_table.csv`;
+  from the player-level and team panels.
+- **Figure 5** (defense inversions) — correlations from `defense_team_season_panel.csv`; sack column
+  of `results/defense_factor_weights.csv`.
+- **Figure A3** (receiving-corps mix) — deep-threat / possession counts from
+  `offense_player_season_levels.csv` joined to `offense_team_season_panel.csv`.
+- **Figure A4 / Table A5** (depth) — `results/depth_curves.csv`; from the player-level files + team outcomes.
+- **Figure A5, §4.7** (portability) — `results/portability_persistence.csv`; from the
+  transfer-persistence files.
+- **Figure A6, §4.8** (misallocation) — recomputed in `examples/verify_reproduction.py` from the
+  offense player-level file + team panel.
+- **Figure 6, §4.8** (coordinators) — `coordinator_effects_offense.csv`,
+  `coordinator_effects_defense.csv`, `results/e3_fe.json`, `results/def_e3.json`.
+- **Figure 7 / Table A6** (portal) — `results/portal_backtest_summary.csv`; from `transfer_backtest.csv` +
   `counterfactual_panel.csv`.
-- **Table 9** (preseason) — `results/preseason_variant_comparison.csv`; from
+- **Table 2 / Figure A7** (preseason) — `results/preseason_variant_comparison.csv`; from
   `preseason_projection_panel.csv`.
-- **Figure 4** (coordinators) — `coordinator_effects_offense.csv`, `coordinator_effects_defense.csv`.
+
+---
+
+## `scripts/` and `fig/` — the paper's figures
+
+`scripts/paper_figs.py` draws all fourteen figures in the manuscript (Figures 1–7 and A1–A7) from
+the files in `results/` and `data/`, and writes them to `fig/paper/`, where the committed PNGs are
+the exact images embedded in the submitted paper. Figure file names carry their original study
+numbering; the manuscript caption number is authoritative:
+
+| Manuscript | File | Manuscript | File |
+|---|---|---|---|
+| Figure 1 | `fig1_balance.png` | Figure A1 | `fig3_weightmap_defense.png` |
+| Figure 2 | `fig2_weightmap_offense.png` | Figure A2 | `fig5_loso.png` |
+| Figure 3 | `fig4_leverage.png` | Figure A3 | `fig6_wr_mix.png` |
+| Figure 4 | `fig7_asymmetry.png` | Figure A4 | `fig8_depth.png` |
+| Figure 5 | `fig9_defense_inversion.png` | Figure A5 | `fig10_portability.png` |
+| Figure 6 | `fig11_coordinators.png` | Figure A6 | `fig12_misallocation.png` |
+| Figure 7 | `fig13_portal_backtest.png` | Figure A7 | `fig14_preseason.png` |
+
+```bash
+python3 scripts/paper_figs.py     # requires numpy, pandas, matplotlib
+```
 
 ---
 
@@ -190,7 +231,7 @@ Requires `pandas`, `numpy`, `scikit-learn`. The script recomputes, from the pack
 
 ```
 Competition Factor. "What Builds a Football Team: A 24-Season Anatomy of Roster Construction,
-Misallocation, and the Transfer Portal." MIT Sloan Sports Analytics Conference, 2026.
+Misallocation, and the Transfer Portal." MIT Sloan Sports Analytics Conference, 2027.
 Derived data: competitionfactor.com.
 ```
 
